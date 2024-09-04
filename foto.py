@@ -1,13 +1,13 @@
-from error import DimesionError
+from error import DimensionError
 
 class Foto():
     MAX = 2500
 
     def __init__(self, ancho: int, alto: int, ruta: str) -> None:
-        self.__ancho = ancho
-        self.__alto = alto
         self.__ancho = None
         self.__alto = None
+        self.ancho = ancho
+        self.alto = alto
         ruta = ruta
 
     @property
@@ -17,7 +17,7 @@ class Foto():
     @ancho.setter
     def ancho(self, ancho) -> None:
         if ancho < 1 or ancho > Foto.MAX:
-            raise DimesionError("Valor de ancho no valido", dimension = ancho, maximo = Foto.MAX)
+            raise DimensionError("Valor de ancho es invalido", dimension = ancho, maximo = Foto.MAX)
         self.__ancho = ancho
 
     @property
@@ -27,5 +27,5 @@ class Foto():
     @alto.setter
     def alto(self, alto) -> None:
         if alto < 1 or alto > Foto.MAX:
-            raise DimesionError("Valor de alto no valido", dimension = alto, maximo = Foto.MAX)
+            raise DimensionError("Valor de alto es invalido", dimension = alto, maximo = Foto.MAX)
         self.__alto = alto
