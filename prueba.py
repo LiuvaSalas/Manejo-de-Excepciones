@@ -13,3 +13,5 @@ while consultar:
         print(f"ERROR: {e}")
 
 print("Valores de la foto valida!")
+
+#Aun me falta documentar y Readme
