@@ -20,7 +20,7 @@ class Foto():
         self.__alto = None
         self.ancho = ancho
         self.alto = alto
-        ruta = ruta
+        self.ruta = ruta
 
     @property
     def ancho(self) -> int:
