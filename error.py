@@ -27,7 +27,12 @@ class DimensionError(Exception):
         Retorna:
             str: La representación en cadena del error, incluyendo los detalles de la dimensión y el máximo si están disponibles.
         """
-        if self.dimension is not None or self.maximo is not None:
-            return super().__str__()
-        else:
-            return f"{self.mensaje} - Dimesion: {self.dimension} - Maximo: {self.maximo}"
+        detalles = []
+        if self.dimension is not None:
+            detalles.append(f"Dimension: {self.dimension}")
+        if self.maximo is not None:
+            detalles.append(f"Máximo permitido: {self.maximo}")
+        
+        # Incluir los detalles si están disponibles.
+        detalles_str = " - ".join(detalles)
+        return f"{self.mensaje} ({detalles_str})" if detalles_str else self.mensaje
